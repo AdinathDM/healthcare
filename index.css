@@ -1,53 +1,47 @@
 .nav {
-    width: 100vw ;
-    height: 20vh ;
+    width: 100vw;
+    height: 20vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    box-shadow: 0px 2px 20px 2px rgb(100, 73, 73);
-   
+    box-shadow: 0px 2px 20px 2px rgba(100, 73, 73, 0.5);
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .home {
-    width: 100vw;
+    width: 100%;
     height: 80vh;
     text-align: center;
 }
 
-.list{
+.list {
     display: flex;
     gap: 35px;
     list-style: none;
     color: rgb(130, 80, 80);
-    padding-left: 382px;
- 
+    padding-left: 10%; /* Use percentage for responsiveness */
+    justify-content: center; /* Center list items */
 }
 
-#img{
-    width: 100vw;
-    height: 60vh;
+#img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
 }
 
-#Course{
+#Course,
+#test,
+#faq {
     padding: 10px;
     border-radius: 2%;
     background-color: #4e5ac8;
     cursor: pointer;
-    
+    transition: background-color 0.3s; /* Add transition for hover effects */
 }
 
-#test{
-    padding: 10px;
-    border-radius: 2%;
-    background-color:  #4e5ac8;
-    cursor: pointer;
-}
-
-#faq{
-    padding: 10px;
-    border-radius: 2%;
-    background-color:  #4e5ac8;
-    cursor: pointer;
+#Course:hover,
+#test:hover,
+#faq:hover {
+    background-color: #3b4a99; /* Darker color on hover */
 }
 
 #line {
@@ -55,7 +49,38 @@
     color: aliceblue;
 }
 
-#line:hover{
+#line:hover {
     cursor: pointer;
     color: black;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column; /* Stack items vertically */
+        height: auto; /* Allow height to adjust */
+    }
+
+    .list {
+        flex-direction: column; /* Stack list items vertically */
+        padding-left: 0; /* Remove left padding */
+        gap: 20px; /* Adjust gap for vertical stacking */
+    }
+
+    #img {
+        height: 40vh; /* Adjust image height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .list {
+        gap: 10px; /* Reduce gap for smaller screens */
+    }
+
+    #Course,
+    #test,
+    #faq {
+        width: 100%; /* Make buttons full width */
+        margin: 5px 0; /* Add margin for spacing */
+    }
 }
